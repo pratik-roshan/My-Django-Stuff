@@ -1,7 +1,5 @@
 import os
-from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','Second_Project.settings')
-settings.configure(DEBUG=True,)
 
 import django
 django.setup()
@@ -29,7 +27,7 @@ def populate(N=5):
 
         # Create the fake data for that entry
         fake_url = fakegen.url()
-        fake_date = fakegen.data()
+        fake_date = fakegen.date()
         fake_name = fakegen.company()
 
         # Create the new webpage entry

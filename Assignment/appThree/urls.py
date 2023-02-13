@@ -3,5 +3,6 @@ from appThree import views
 
 
 urlpatterns = [
-    path('', views.users, name='users'),
+    path('users', views.users, name='users'),
+    path('', views.index, name='index')
 ]

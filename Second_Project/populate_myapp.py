@@ -1,6 +1,6 @@
 import os
 from django.conf import settings
-os.environ.setdefault('DJANGO_SETTINGS-MODULE','Second_Project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','Second_Project.settings')
 settings.configure(DEBUG=True,)
 
 import django

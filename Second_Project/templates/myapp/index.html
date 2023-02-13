@@ -10,6 +10,31 @@
 </head>
 <body>
     <h1> Heyy! This is the Picture</h1>
-    <img src="{% static "images/martin-sanchez.jpg" %}" alt="Uh Oh, didn't show!">
+    <h2> Here are your Access Records:</h2>
+
+    <div class="django">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                </thead>
+
+                {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>NO ACCESS RECORDS FOUND</p>
+            {% endif %}
+
+            
+
+
+    </div>
+    <!-- <img src="{% static "images/martin-sanchez.jpg" %}" alt="Uh Oh, didn't show!"> -->
 </body>
 </html>

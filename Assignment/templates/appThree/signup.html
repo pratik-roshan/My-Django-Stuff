@@ -10,25 +10,14 @@
 </head>
 <body>
     <div class="container">
-        <h1> USERS! </h1>
+        <h1> Please Sign Up Here!</h1>
+        <form method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="SUBMIT">
+        </form>
 
-
-    
-        {% if users %}
-
-        <ol>
-        {% for person in users %}
-    
-        <li>User Info</li>
-        <ul>
-            <li>First Name: {{ person.first_name }}</li>
-            <li>Last Name: {{ person.last_name }}</li>
-            <li>Email: {{ person.email }}</li>
-        </ul>
-        {% endfor %}
-        </ol>
-
-        {% endif %}
     </div>
+
 </body>
 </html>

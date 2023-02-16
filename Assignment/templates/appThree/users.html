@@ -9,8 +9,16 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}"/>
 </head>
 <body>
-    <h1> Here are your users:</h1>
-    {% if users %}
+    <div class="container">
+        <h1> Please Sign Up Here!</h1>
+        <form method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="SUBMIT">
+        </form>
+
+    </div>
+        <!-- {% if users %}
 
     <ol>
         {% for person in users %}
@@ -23,7 +31,7 @@
         {% endfor %}
     </ol>
 
-    {% endif %}
+    {% endif %} -->
 
 </body>
 </html>

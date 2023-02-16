@@ -22,5 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("users", include('appThree.urls')),
     # path("form",include('appThree.urls')),
-    path("form/",views.form_name_view,name='form_name')
+    # path("form/",views.form_name_view,name='form_name')
 ]

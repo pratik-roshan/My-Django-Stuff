@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from appThree.models import User
+# from appThree.models import User
 from . import forms
-
+from appThree.forms import NewUser
 # Create your views here.
 
 def index(request):
@@ -9,9 +9,25 @@ def index(request):
 
 def users(request):
 
-    user_list = User.objects.order_by('first_name')
-    user_dict = {'users':user_list}
-    return render(request,'appThree/users.html',context=user_dict)
+    form = NewUser()
+
+    if request.method == "POST":
+        form = NewUser(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        
+        else:
+            print('ERROR FORM INVALID')
+
+    return render(request,'appThree/users.html',{'form':form})
+
+
+
+    # user_list = User.objects.order_by('first_name')
+    # user_dict = {'users':user_list}
+    # return render(request,'appThree/users.html',context=user_dict)
 
 def form_name_view(request):
     form = forms.FormName()

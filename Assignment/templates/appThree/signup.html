@@ -6,18 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "css/style.css" %}"/>
 </head>
 <body>
-    <div class="container">
-        <h1> Please Sign Up Here!</h1>
-        <form method="POST">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="submit" class="btn btn-primary" value="SUBMIT">
-        </form>
+    <nav class="navbar navbar-default navbar-static-top"></nav>
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="{% url 'appThree:index'%}">HOME</a></li>
+                <li><a class="navbar-link" href="{% url 'appThree:USERS'%}">USERS</a></li>
+                <li><a class="navbar-link" href="{% url 'appThree:registration'%}">Register</a></li>
+                <li><a class="navbar-link" href="{% url 'admin:index'%}">Admin</a></li>
+                
+            </ul>
+        </div>
+    <h1> Please Sign Up Here!</h1>
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="SUBMIT">
+    </form>
 
-    </div>
+    
 
 </body>
 </html>

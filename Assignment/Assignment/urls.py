@@ -21,6 +21,7 @@ urlpatterns = [
     path("",include('appThree.urls')),
     path("admin/", admin.site.urls),
     path("users", include('appThree.urls')),
+    path("registration/", include('appThree.urls')),
     path("register/", include('appThree.urls')),
     path("relative/", include('appThree.urls')),
     # path("form",include('appThree.urls')),

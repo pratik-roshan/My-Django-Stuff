@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from appThree.models import User
+from appThree.models import UserInfo
 from . import forms
 from appThree.forms import NewUser
 # Create your views here.
@@ -25,7 +25,7 @@ def signup(request):
 
 
 def users(request):
-    user_list = User.objects.order_by('first_name')
+    user_list = UserInfo.objects.order_by('first_name')
     user_dict = {'users':user_list}
     return render(request,'appThree/users.html',context=user_dict)
 

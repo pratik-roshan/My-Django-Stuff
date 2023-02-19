@@ -1,4 +1,4 @@
 from django.contrib import admin
-from appThree.models import User
+from appThree.models import UserProfileInfo
 # Register your models here.
-admin.site.register(User)
+admin.site.register(UserProfileInfo)

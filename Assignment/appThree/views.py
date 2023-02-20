@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from appThree.models import UserInfo
 from . import forms
 from appThree.forms import NewUser, UserForm, UserProfileInfoForm
+
+ 
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
+
 # Create your views here.
 
 def index(request):
@@ -63,6 +71,36 @@ def users(request):
     user_list = UserInfo.objects.order_by('first_name')
     user_dict = {'users':user_list}
     return render(request,'appThree/users.html',context=user_dict)
+
+
+def user_login(request):
+
+    if request.method == 'POST':
+        user_name = request.POST.get('username')
+        passwd = request.POST.get('password')
+
+        user = authenticate(username=user_name, password=passwd)
+        
+        if user:
+            if user.is_active:
+                login(request,user)
+                return HttpResponseRedirect(reverse('index'))
+            
+            else:
+                return HttpResponse("ACCOUNT NOT ACTIVE")
+            
+        else:
+            print("Someone Tried to LogIN")
+            print("Username: {} and password {}".format(user_name,passwd))
+            return HttpResponse("Invalid LogIn details!")
+        
+    else:
+        return render(request,'appThree/login.html',{})
+    
+
+
+
+
 
 # def form_name_view(request):
 #     form = forms.FormName()

@@ -16,6 +16,15 @@
                 <li><a class="navbar-link" href="{% url 'appThree:registration'%}">Register</a></li>
                 <li><a class="navbar-link" href="{% url 'admin:index'%}">Admin</a></li>
                 
+                {% if user.is_authenticated %}
+                <li><a class="navbar-link" href="{% url 'appThree:logout'%}">Logout</a></li>
+
+                {% else %}
+                <li><a class="navbar-link" href="{% url 'appThree:login'%}">LogIn</a></li>
+
+                {% endif %}
+
+
             </ul>
         </div>
     </nav>

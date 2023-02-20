@@ -16,6 +16,17 @@ from django.urls import reverse
 def index(request):
     return render(request,'appThree/index.html')
 
+
+@login_required
+def special(request):
+    return HttpResponse("You are logged in, Nice!")
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
 def signup(request):
 
     form = NewUser()
@@ -97,9 +108,6 @@ def user_login(request):
     else:
         return render(request,'appThree/login.html',{})
     
-
-
-
 
 
 # def form_name_view(request):

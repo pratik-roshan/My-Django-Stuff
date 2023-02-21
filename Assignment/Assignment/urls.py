@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.urlpatterns import format_suffix_patterns
 from appThree import views
 
 urlpatterns = [
     path("",include('appThree.urls')),
     path("admin/", admin.site.urls),
+    path("userinfo", include('appThree.urls')),
     path("users", include('appThree.urls')),
     path("registration/", include('appThree.urls')),
     path("register/", include('appThree.urls')),

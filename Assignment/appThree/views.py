@@ -4,11 +4,16 @@ from appThree.models import UserInfo
 from . import forms
 from appThree.forms import NewUser, UserForm, UserProfileInfoForm
 
- 
+from django.shortcuts import get_object_or_404 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from . serializers import UserInfoSerializer
 
 
 # Create your views here.
@@ -108,6 +113,15 @@ def user_login(request):
     else:
         return render(request,'appThree/login.html',{})
     
+class UserInfoList(APIView):
+
+    def get(self, request):
+        User1 = UserInfo.objects.all()
+        serialize = UserInfoSerializer(User1, many=True)
+        return Response(serialize.data)
+    
+    def post(self):
+        pass
 
 
 # def form_name_view(request):

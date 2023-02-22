@@ -14,5 +14,5 @@ urlpatterns = [
     path('login', views.user_login, name='login'),
     path('logout', views.user_logout, name='logout'),
     path('relative/', views.relative, name='relative'),
-    # path('form', views.form_name_view, name='Forms'),
+    path('form', views.form_name_view, name='Forms'),
 ]

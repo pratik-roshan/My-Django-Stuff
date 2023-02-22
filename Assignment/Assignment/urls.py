@@ -28,6 +28,6 @@ urlpatterns = [
     path("login", include('appThree.urls')),
     path("logout", include('appThree.urls')),
     path("relative/", include('appThree.urls')),
-    # path("form",include('appThree.urls')),
+    path("form",include('appThree.urls')),
     # path("form/",views.form_name_view,name='form_name')
 ]

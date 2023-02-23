@@ -134,7 +134,7 @@ def form_name_view(request):
             print("VALIDATION SUCCESS!")
             print("NAME: "+form.cleaned_data['name'])
             print("EMAIL: "+form.cleaned_data['email'])
-            print("TEXT: "+form.cleaned_data['text'])
+            # print("TEXT: "+form.cleaned_data['text'])
 
 
     return render(request,'appThree/form_page.html',{'form':form})

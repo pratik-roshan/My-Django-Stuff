@@ -11,3 +11,11 @@ def student_detail(request, pk):
     serializer = StudentSerializer(stu)
     json_data = JSONRenderer().render(serializer.data)
     return HttpResponse(json_data, content_type='application/json')
+
+
+# Query Set - All Student Data 
+def student_list(request):
+    stu = Student.objects.all()
+    serializer = StudentSerializer(stu, many=True)
+    json_data = JSONRenderer().render(serializer.data)
+    return HttpResponse(json_data, content_type='application/json')
